@@ -1,0 +1,624 @@
+@import "functions"
+@import "mixins"
+@import "sprites"
+@import "base"
+@import "reset.css"
+ 
+@font-face 
+	font-family: 'Open Sans Regular'
+	src: url('fonts/OpenSans-Regular.ttf')
+
+@font-face 
+	font-family: 'Open Sans Semibold'
+	src: url('fonts/OpenSans-Semibold.ttf')
+
+@font-face 
+	font-family: 'Open Sans Bold'
+	src: url('fonts/OpenSans-Bold.ttf')
+
+@mixin translate($transform-x : 0, $transform-y : 0) 
+	-moz-transform: translate($transform-x, $transform-y)
+	-o-transform: translate($transform-x, $transform-y)
+	-ms-transform: translate($transform-x, $transform-y)
+	-webkit-transform: translate($transform-x, $transform-y)
+	transform: translate($transform-x, $transform-y)
+
+@mixin transition($value : 0.3s)
+	-webkit-transition: $value
+	-moz-transition: $value
+	-ms-transition: $value
+	-o-transition: $value
+	transition: $value
+
+@mixin radius($border-radius) 
+	-webkit-border-radius: $border-radius
+	-moz-border-radius: $border-radius	
+	border-radius: $border-radius
+
+@mixin rotate($value, $transition : 0.3s)
+	-webkit-transform: rotate($value)
+	-moz-transform: rotate($value)
+	-ms-transform: rotate($value)
+	-o-transform: rotate($value)
+	@include transition($transition)
+
+@mixin hidden_tag($value : 0.3s)
+	opacity: 0
+	visibility: hidden
+	@include transition($value)
+
+@mixin visible_tag($value : 0.3s)
+	opacity: 1
+	visibility: visible
+	@include transition($value)
+
+@mixin bg_img
+	background-repeat: no-repeat
+	background-position: 50%
+	background-size: 100%
+ 
+
+$blue-color: #007ee5
+$light-blue-color: #d0dce7
+$light-grey-color: #a6b0b7
+$text-color: #727e88
+
+*
+	font-family: 'Open Sans Regular'
+//main bloks
+.wrapper
+	float: left
+	width: 100%
+	background-color: #f5f8f9
+
+.main
+	max-width: 1170px
+	padding: 70px 0
+	margin: 0 auto
+
+.main-block
+	float: left
+	width: 100%
+	background-color: #fff
+	margin-bottom: 40px
+	padding: 25px 22px 5px
+
+.content-block
+	padding-bottom: 22px
+	border: 1px solid $light-blue-color
+
+//button
+.button
+	padding: 7px 0
+	font-size: 12px
+	width: 100px
+	text-align: center
+	text-transform: uppercase
+	color: $blue-color
+	background-color: transparent
+	border: 1px solid $blue-color
+	cursor: pointer
+	@include radius(3px)
+	@include transition
+	&:hover
+		background-color: $blue-color
+		color: #fff
+		@include transition
+
+
+//login
+.login
+	float: right
+	width: 100%
+	text-align: right
+	padding-bottom: 10px
+
+//upload
+.upload
+	float: left
+	width: 100%
+	padding: 10px 0 5px
+
+.upload-form
+	position: relative
+	width: 220px
+	margin: 0 auto
+	border: 1px solid $light-blue-color
+	text-align: right
+	padding: 15px 10px
+	@include radius(3px)
+
+.svg-camera
+	position: absolute
+	left: 18px
+	top: 50%
+	width: 22px
+	height: 22px
+	color: $light-blue-color
+	fill: $light-grey-color
+	@include translate(0, -50%)
+
+.upload-form__mask
+	color: $text-color
+
+.upload-form__input
+	position: absolute
+	bottom: 0
+	right: 0
+	left: 0
+	top: 0
+	font-size: 0
+	width: 100%
+	z-index: 100
+	opacity: 0
+	cursor: pointer
+
+
+//profile
+.profile
+	position: relative
+	float: left
+	width: 100%
+	z-index: 100
+
+//profile logo
+.profile-logo
+	position: relative
+	top: -17px
+	float: left
+	width: 170px
+	height: 170px
+	margin-right: 10px
+	box-shadow: 0 0 20px 0 $light-blue-color
+	overflow: hidden
+
+.logo
+	position: absolute
+	top: 0
+	left: 50%
+	@include translate(-50%, 0)
+
+//profile info
+.profile-info
+	float: left
+	margin: 20px
+
+.profile-info__name
+	font-weight: 600
+	font-size: 19px
+	padding-bottom: 15px
+
+.profile-info__contact
+	position: relative
+	padding: 0 0 16px 23px
+	color: $text-color
+
+.svg-subicon
+	position: absolute
+	height: 16px
+	max-width: 16px
+	left: -4px
+	top: 0
+	fill: $light-blue-color
+
+//profile rating
+.profile-star
+	float: right
+	padding: 16px 0
+
+.svg-star
+	display: inline-block
+	font-size: 26px
+	width: 25px
+	height: 25px
+	fill: $text-color
+
+.reviews
+	padding-bottom: 14px
+	display: inline-block
+	vertical-align: middle
+
+.reviews__title
+	color: $text-color
+	font-size: 12px
+
+.reviews__num
+	padding: 0 18px 0 13px
+
+
+//navigation
+.navigation
+	position: relative
+	float: left
+	width: 100%
+	margin: -50px 0 -22px
+	&:after
+		position: absolute
+		content: ''
+		bottom: 0
+		top: 0
+		right: -22px
+		left: -22px
+		box-shadow: 0 0 14px 0 $light-blue-color
+	
+//menu
+.menu
+	float: left 
+	padding-left: 180px
+
+.menu__ul
+	float: left
+	white-space: nowrap
+
+.menu__li
+	display: inline-block
+	position: relative
+	z-index: 100
+
+.menu__link
+	display: block
+	padding: 20px 14px
+
+
+.menu__title
+	position: relative
+	text-transform: uppercase
+	color: $text-color
+	&:after
+		position: absolute
+		content: ''
+		left: 50%
+		right: 50%
+		bottom: -80%
+		border-bottom: 2px solid $blue-color
+		@include transition
+
+.menu__title--active
+	&:after
+		left: 0
+		right: 0
+		@include transition
+
+
+//followers
+.followers
+	float: right
+	padding: 14px 0
+	position: relative
+	z-index: 100
+
+.followers-button
+	float: left
+.svg-add
+	margin: 0 10px
+	width: 25px
+	height: 25px 
+	background-color: $light-grey-color
+	cursor: pointer
+	fill: #fff
+	@include radius(50%)
+	&:hover
+		background-color: $light-grey-color * .8
+	&:active
+		background-color: $light-grey-color * .6
+
+.followers-num
+	padding: 0 4px
+
+.followers-title
+	font-size: 13px
+
+.fullowers-state
+	float: right
+	padding: 5px 0
+
+//menu__header
+.menu__header
+	padding: 18px 20px 35px
+	color: $text-color
+	font-size: 24px
+	line-height: 22px
+
+//.setting
+.setting
+	@include hidden_tag
+
+.setting--active
+	@include visible_tag
+
+.setting-item
+	display: table
+	position: relative
+	width: fit-content
+	padding: 10px
+	margin: 0 0 1px 15px
+	overflow: hidden
+	background-color: #f5f8f8
+
+.setting-title
+	position: relative
+	padding-right: 52px
+
+.setting-icon
+	padding-left: 30px
+
+.svg-create
+	position: absolute
+	content: ''
+	height: 36px
+	padding: 10px
+	top: -10px
+	right: -10px
+	bottom: 0
+	width: 36px
+	background-color: #ecf1f5
+	cursor: pointer
+	fill: $light-grey-color
+
+	&:hover
+		background-color: $blue-color
+		fill: #fff
+
+
+.setting-title__text--bold
+	font-family: 'Open Sans Semibold'
+
+.setting-title__error
+	position: absolute
+	font-size: 12px
+	width: 80px
+	right: -10px
+	top: 30%
+	color: #ff0000
+	@include hidden_tag
+
+.setting-title__error--active
+	@include visible_tag
+
+//setting popup
+.setting-popup
+	// display: none
+	position: absolute
+	background-color: #fff
+	width: 300px
+	padding: 22px
+	box-shadow: 0 0 20px 3px $light-blue-color
+	@include hidden_tag
+	&:after
+		position: absolute
+		content: ''
+		left: -15px
+		top: 16px
+		border-top: 10px solid transparent
+		border-right: 15px solid #fff
+		border-bottom: 10px solid transparent
+
+.setting-popup--active
+	@include visible_tag
+
+.setting-popup__form
+	position: relative
+
+.setting-popup__form--active
+	.setting-popup__label
+		color: $blue-color
+		top: -5px
+		font-size: 11px
+	.setting-popup__input
+		border-color: $blue-color
+
+.setting-popup__label
+	position: absolute
+	top: 13px
+	left: 10px
+	color: $light-grey-color
+	font-size: 12px
+	line-height: 22px
+	text-transform: uppercase
+	@include transition
+
+.setting-popup__input
+	margin: 17px 0 10px
+	font-size: 13px
+	padding: 0 0 10px 10px
+	border: 0
+	border-bottom: 1px solid $light-blue-color
+	&:focus
+		outline: none
+	&:-webkit-autofill
+		background-color: red !important
+
+.setting-buttons
+	margin-top: 20px
+
+.button-margin
+	margin-right: 20px
+
+.setting-btn--mobile
+	display: none
+
+.svg-setting
+	@extend .svg-create
+ 
+.mobile-popup__input
+	@extend .setting-popup__input
+
+.setting-mobile
+	display: none
+
+@media screen and (max-width: 992px){
+.main-block
+	padding: 12px 17px 12px 6px
+
+.menu
+	padding: 0
+
+.navigation
+	margin: 0 0 -3px}
+
+@media screen and (max-width: 768px){
+.setting-popup
+	display: none
+
+.setting-mobile
+	display: block
+
+.main
+	padding: 54px 0
+
+.main-block
+	position: relative
+
+.user-block
+	background-color: transparent
+	margin-bottom: 11px
+
+.button
+	border: 0
+	width: 60px
+
+.button-margin
+	margin-left: 5px
+
+.button-login
+	font-family: 'Open Sans Bold'
+
+.upload
+	display: none
+
+.profile-logo
+	top: 0
+	left: 50%
+	width: 130px
+	height: 130px
+	margin: 0
+	@include translate(-50%, 0)
+
+.profile-info
+	width: 100%
+	margin: 17px 0 0
+
+.profile-info__name
+	text-align: center
+	padding-bottom: 18px
+
+.profile-info__contact
+	padding: 0 0 13px 33px
+	font-size: 14px
+
+.svg-subicon
+	left: 10px
+
+.profile-star
+	float: left
+	padding: 0 0 16px
+
+.svg-star
+	fill: $blue-color
+	width: 27px
+	height: 23px
+	margin: 0
+
+.reviews
+	display: block
+	width: 100%
+	padding: 7px 0 0
+
+.reviews__num
+	padding: 0 11px 0 8px
+
+.star-first
+	margin-left: 0
+
+.followers
+	float: left
+	padding: 6px 0
+
+.navigation
+	&:after
+		display: none
+
+.menu
+	width: 100%
+	position: relative
+	margin-top: 12px
+	background-color: #fff
+	box-shadow: 0 0 14px 0 $light-blue-color
+	&:after
+		position: absolute
+		content: ''
+		background-color: #fff
+		left: -15px
+		right: -15px
+		top: 0
+		bottom: 0
+
+.menu__ul
+	overflow-x: scroll
+	width: 100%
+	&::-webkit-scrollbar 
+		width: 0px
+		height: 0
+		background: transparent
+.menu__link
+	padding: 20px 5px 16px
+
+.setting-item
+	width: initial
+	background-color: transparent
+	margin: 4px 0 1px
+
+.menu__title:after
+	bottom: -62%
+	
+.svg-create
+	display: none
+
+.setting-btn--mobile
+	position: relative
+	display: block
+
+.svg-setting
+	display: block
+
+.menu__header
+	padding: 0 20px 9px 3px
+	font-size: 21px
+
+.setting
+	margin: 10px 0 25px
+
+.svg-create
+	height: 25px
+	width: 29px
+	padding: 5px
+	top: -33px
+	right: 3px
+
+.setting-mobile
+	position: absolute
+	background-color: #fff
+	top: 41px
+	right: 0
+	left: 0
+	padding: 0 15px
+	@include hidden_tag
+
+.setting-mobile--active
+	@include visible_tag
+
+.setting-mobile__input
+	position: relative
+
+.mobile-popup__input
+	width: 100%
+
+.setting-buttons
+	position: absolute
+	top: -45px
+	right: 0	
+
+
+
+.dn
+	display: none}

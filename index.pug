@@ -1,0 +1,152 @@
+extends pug/base
+
+append vars
+	- html.classList.push("page-index")
+	- meta.charset = "utf-8"
+	- meta.description = "descr"
+	- title = "title "
+	- meta.viewport = "width=device-width, initial-scale=1"
+	
+block content
+	.wrapper
+		main.main
+			.main-block.user-block
+				.login
+					button.button.button-login LOG OUT
+				.upload
+					form.upload-form
+						span.upload-form__mask Upload Cover Image
+						input(type="file").upload-form__input
+						svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-camera
+							circle(cx="256" cy="280" r="50")
+							path(d="M440 96h-88l-32-32H192l-32 32H72c-22.092 0-40 17.908-40 40v272c0 22.092 17.908 40 40 40h368c22.092 0 40-17.908 40-40V136c0-22.092-17.908-40-40-40zM256 392c-61.855 0-112-50.145-112-112s50.145-112 112-112 112 50.145 112 112-50.145 112-112 112z")
+				.profile
+					.profile-logo
+						img(src="images/profile_image.jpg", alt="profile image").logo
+					.profile-info
+						h1.profile-info__name Jessica Parker
+						p.profile-info__contact
+							span.profile-info__contact--location Newport Beach, CA
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-subicon
+								path(d="M256 32c-88.004 0-160 70.557-160 156.801C96 306.4 256 480 256 480s160-173.6 160-291.199C416 102.557 344.004 32 256 32zm0 212.801c-31.996 0-57.144-24.645-57.144-56 0-31.357 25.147-56 57.144-56s57.144 24.643 57.144 56c0 31.355-25.148 56-57.144 56z")
+
+						p.profile-info__contact
+							span.profile-info__contact--phone (949) 325 - 68594
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-subicon
+								path(d="M426.666 330.667a250.385 250.385 0 0 1-75.729-11.729c-7.469-2.136-16-1.073-21.332 5.333l-46.939 46.928c-60.802-30.928-109.864-80-140.802-140.803l46.939-46.927c5.332-5.333 7.462-13.864 5.332-21.333-8.537-24.531-12.802-50.136-12.802-76.803C181.333 73.604 171.734 64 160 64H85.333C73.599 64 64 73.604 64 85.333 64 285.864 226.136 448 426.666 448c11.73 0 21.334-9.604 21.334-21.333V352c0-11.729-9.604-21.333-21.334-21.333z")
+								
+					.profile-star
+						svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-star.star-first
+							path(d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z")
+						svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-star
+							path(d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z")
+						svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-star
+							path(d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z")
+						svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-star
+							path(d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z")
+						svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-star
+							path(d="M458 210.409l-145.267-12.476L256 64l-56.743 133.934L54 210.409l110.192 95.524L131.161 448 256 372.686 380.83 448l-33.021-142.066L458 210.409zM272.531 345.286L256 335.312l-16.53 9.973-59.988 36.191 15.879-68.296 4.369-18.79-14.577-12.637-52.994-45.939 69.836-5.998 19.206-1.65 7.521-17.75 27.276-64.381 27.27 64.379 7.52 17.751 19.208 1.65 69.846 5.998-52.993 45.939-14.576 12.636 4.367 18.788 15.875 68.299-59.984-36.189z")
+						span.reviews
+							span.reviews__num 0
+							span.reviews__title Reviews
+				.navigation
+					.followers
+						.followers-button
+							svg(mlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-add
+								path(d="M416 277.333H277.333V416h-42.666V277.333H96v-42.666h138.667V96h42.666v138.667H416v42.666z")
+
+						.fullowers-state
+							span.followers-num 15
+							span.followers-title Followers
+					nav.menu
+						ul.menu__ul
+							li.menu__li
+								a.menu__link(href="#" data-tab="tab-about")
+									span.menu__title.menu__title--active about
+							li.menu__li
+								a.menu__link(href="#" data-tab="tab-settings")
+									span.menu__title settings
+							li.menu__li
+								a.menu__link(href="#" data-tab="tab-option1")
+									span.menu__title option1
+							li.menu__li
+								a.menu__link(href="#" data-tab="tab-option2")
+									span.menu__title option2
+							li.menu__li
+								a.menu__link(href="#" data-tab="tab-option3") 
+									span.menu__title option3
+					
+			.main-block.content-block
+				h2.menu__header About
+				.setting#tab-about.setting--active
+					.setting-btn--mobile
+						svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-setting
+							path(d="M64 368v80h80l235.727-235.729-79.999-79.998L64 368zm377.602-217.602c8.531-8.531 8.531-21.334 0-29.865l-50.135-50.135c-8.531-8.531-21.334-8.531-29.865 0l-39.468 39.469 79.999 79.998 39.469-39.467z")
+
+					.setting-item
+						.setting-title(data-name="Name" data-check="name" )
+							span.setting-title__text.setting-title__text--bold Your Name
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-create
+								path(d="M64 368v80h80l235.727-235.729-79.999-79.998L64 368zm377.602-217.602c8.531-8.531 8.531-21.334 0-29.865l-50.135-50.135c-8.531-8.531-21.334-8.531-29.865 0l-39.468 39.469 79.999 79.998 39.469-39.467z")
+					.setting-item
+						.setting-title.setting-icon(data-name="Web site (http://)" data-check="site" )
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-subicon
+								path(d="M135.7 151c-2.5 3-4.9 6-7.2 9.2 32.2 36.3 76.1 76.5 124.2 113.7 37.8 29.2 76.3 55.2 111.4 75.1 5.9 3.3 11.7 6.5 17.3 9.4 2.5-3 4.9-6 7.2-9.2 11.7-16.1 18.1-33.2 23.3-53.6.8-3.2 1.5-6.4 2.1-9.5 15.8-83-35.6-164.9-118.5-185.9-37-9.4-74.1-5.1-106.3 9.7-21.4 9.9-38.2 22.9-53.5 41.1z")
+								path(d="M418.2 326.8c-4.1 11-7.4 17.5-7.4 17.5 18.2 21.1 24.6 33.9 31.9 46.4 2.4 4.1 7.4 13.1.9 12.4-1.7-.3-3.5-.7-5.5-1.3-21.3-5.4-51.2-18.7-84.3-37.4-35.8-20.3-74.9-46.7-113.3-76.3-51.1-39.5-97.5-82.3-130.6-120.5-15.3-17.6-27.6-34.2-35.7-47.9-2.4-4.1-3.9-6.3-5.6-10.4-2.5-6.2 5-5.1 7-4.6 14.9 3.8 35 9.9 58.2 23.8 0 0 4.3-4.8 13.9-11.4-22.8-15.4-44.6-27.7-65.2-35.5-23.1-8.8-41.1-6.8-47.5 3.7-12.2 19.9 14 72.3 65.3 132-21.5 86 30.6 173.3 116.5 195 41.1 10.4 82.4 3.9 116.8-15 38.1 17.6 72.1 28.6 96.9 34.9 23.9 6.1 40.4 5.5 46.8-4.9 11.1-18.2-12.1-51.8-59.1-100.5z")
+							span.setting-title__text Your web site
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-create
+								path(d="M64 368v80h80l235.727-235.729-79.999-79.998L64 368zm377.602-217.602c8.531-8.531 8.531-21.334 0-29.865l-50.135-50.135c-8.531-8.531-21.334-8.531-29.865 0l-39.468 39.469 79.999 79.998 39.469-39.467z")
+					.setting-item
+						.setting-title.setting-icon(data-name="Phone (start with +)" data-check="phone" )
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-subicon
+								path(d="M426.666 330.667a250.385 250.385 0 0 1-75.729-11.729c-7.469-2.136-16-1.073-21.332 5.333l-46.939 46.928c-60.802-30.928-109.864-80-140.802-140.803l46.939-46.927c5.332-5.333 7.462-13.864 5.332-21.333-8.537-24.531-12.802-50.136-12.802-76.803C181.333 73.604 171.734 64 160 64H85.333C73.599 64 64 73.604 64 85.333 64 285.864 226.136 448 426.666 448c11.73 0 21.334-9.604 21.334-21.333V352c0-11.729-9.604-21.333-21.334-21.333z")
+							span.setting-title__text Your phone
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-create
+								path(d="M64 368v80h80l235.727-235.729-79.999-79.998L64 368zm377.602-217.602c8.531-8.531 8.531-21.334 0-29.865l-50.135-50.135c-8.531-8.531-21.334-8.531-29.865 0l-39.468 39.469 79.999 79.998 39.469-39.467z")
+					.setting-item
+						.setting-title.setting-icon(data-name="city, state & ZIP"  data-check="city" )
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-subicon
+								path(d="M208 448V320h96v128h97.6V256H464L256 64 48 256h62.4v192z")
+							span.setting-title__text Your city
+							svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512").svg-create
+								path(d="M64 368v80h80l235.727-235.729-79.999-79.998L64 368zm377.602-217.602c8.531-8.531 8.531-21.334 0-29.865l-50.135-50.135c-8.531-8.531-21.334-8.531-29.865 0l-39.468 39.469 79.999 79.998 39.469-39.467z")
+				.setting#tab-settings
+				.setting#tab-option1
+				.setting#tab-option2
+				.setting#tab-option3
+
+				.setting-popup
+					form(action="" method="POST").setting-popup__form
+						label(for="setting-input").setting-popup__label  
+						input(type="text")#setting-input.setting-popup__input
+						p.setting-title__error Invalid value. Try again
+					.setting-buttons.setting-buttons
+						button.button.button-margin.button--save save
+						button.button.button--cancel cancel
+
+				.setting-mobile
+					form(action="" method="POST").setting-popup__form
+						.setting-mobile__input
+							label(for="setting-name").setting-popup__label first name
+							input(type="text" data-mobile-input="name")#setting-name.mobile-popup__input
+
+						.setting-mobile__input
+							label(for="setting-lname").setting-popup__label last name 
+							input(type="text" data-mobile-input="surname")#setting-lname.mobile-popup__input
+
+						.setting-mobile__input
+							label(for="setting-site").setting-popup__label website  
+							input(type="text" data-mobile-input="site")#setting-site.mobile-popup__input
+
+						.setting-mobile__input
+							label(for="setting-phone").setting-popup__label  phone number
+							input(type="text" data-mobile-input="phone")#setting-phone.mobile-popup__input
+
+						.setting-mobile__input
+							label(for="setting-city").setting-popup__label city, state & zip 
+							input(type="text" data-mobile-input="city")#setting-city.mobile-popup__input
+					.setting-buttons.setting-buttons--mobile
+						button.button.button-margin.button--save.button--save-mobile save
+						button.button.button--cancel.button--cancel-mobile cancel
+
+
